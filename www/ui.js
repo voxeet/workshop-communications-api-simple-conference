@@ -184,7 +184,12 @@ const addVideoNode = (participant, stream) => {
 
   if (!videoNode) {
     videoNode = document.createElement('video');
-    videoNode.setAttribute('class','video-item')
+    // add css class to mirror current user's video
+    if (participant.id === VoxeetSDK.session.participant.id) {
+      videoNode.setAttribute('class', 'flipped-video');
+    }
+    
+    videoNode.setAttribute('class', 'video-item')
     videoNode.setAttribute('id', 'video-' + participant.id);
     // videoNode.setAttribute('height', 120);
     // videoNode.setAttribute('width', 160);

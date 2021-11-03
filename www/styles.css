@@ -1,16 +1,10 @@
 /* app  Styles */
 
 .flipped-video {
-    object-fit: cover;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 0;
-    position: absolute;
-    border-radius: 100px;
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg); /* Safari and Chrome */
     -moz-transform: rotateY(180deg); /* Firefox */
-   }
+}
 
 .videos-container {
     display: flex;
