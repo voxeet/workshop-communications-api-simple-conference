@@ -1,0 +1,14 @@
+{
+  "name": "Simple Conference App",
+  "productName": "Simple Conference App",
+  "description": "Workshop Dolby.io Communications API Simple Conference App",
+  "keywords": [],
+  "version": "1.0.0",
+  "author": "Dan Zeitman",
+  "scripts": {
+    "start": "serve"
+  },
+  "dependencies": {},
+  "devDependencies": {
+  }
+}

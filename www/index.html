@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Web Video Conference Application</title>
+
+    <script type="text/javascript" src="https://unpkg.com/@voxeet/voxeet-web-sdk@latest/dist/voxeet-sdk.js">
+    </script>
+    <script type="text/javascript" src="ui.js"></script>
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+        </script>
+
+    <script src="https://kit.fontawesome.com/d8d772b4af.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
+        rel="stylesheet" crossorigin="anonymous">
+
+    <link href="./styles.css" rel="stylesheet">
+
+</head>
+
+<body style="background-color: white;">
+
+    <div id="video-container" class="videos-container">
+    </div>
+    <div id="clip-container" class="clip-container1"></div>
+    <div id="screenshare-container" class="screenshare-container"></div>
+
+    <div class="main-controls-container">
+
+        <div class="message-item">
+            <div class="mb-3">
+                <div for="alias-input" class="form-text">Conference alias:</div>
+                <input id="alias-input" value="dev-portal" class="form-control-lg" aria-describedby="aliasHelp" />
+                <div id="aliasHelp" class="form-text">Enter a unique conference name</div>
+            </div>
+            <div class="btn-group">
+                <button id="join-btn" class="btn btn-primary" disabled>Join</button>
+                <button id="leave-btn" class="btn btn-primary" disabled>Leave</button>
+            </div>
+            <div class="mb-3">
+                <div id="name-message" class="form-text">You are logged out.</div>
+                <div id="record-status" class="form-text" style="color: red;">Not Recording</div>
+                <div id="label-dolby-voice" class="form-text">Dolby Voice Off</div>
+            </div>
+
+            <div class="btn-group-sm">
+                <button type="button" class="btn btn-primary" id="start-video-btn" disabled> Start
+                    Video</button>
+                <button type="button" class="btn btn-primary" id="stop-video-btn" disabled> Stop
+                    Video</button>
+                <button type="button" class="btn btn-primary" id="start-audio-btn" disabled> Start
+                    Audio</button>
+                <button type="button" class="btn btn-primary" id="stop-audio-btn" disabled> Stop
+                    Audio</button>
+            </div>
+            <div class="btn-group-sm">
+                <button type="button" class="btn btn-warning" id="start-screenshare-btn" disabled> Start
+                    Screenshare</button>
+                <button type="button" class="btn btn-warning" id="stop-screenshare-btn" disabled> Stop
+                    Screenshare</button>
+            </div>
+
+            <div class="btn-group-sm">
+                <button type="button" class="btn btn-danger" id="start-recording-btn" disabled> Start
+                    Recording</button>
+                <button type="button" class="btn btn-danger" id="stop-recording-btn" disabled> Stop
+                    Recording</button>
+            </div>
+<!-- watch party
+            <label for="clip-url-input" class="form-text">Enter a video URL</label>
+            <input id="clip-url-input"
+                value="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                class="form-control" aria-describedby="clipURLHelp" />
+            <div class="btn-group-sm p-3">
+                <button type="button" class="btn btn-success" id="start-clip-btn" disabled> Start Clip</button>
+                <button type="button" class="btn btn-success" id="stop-clip-btn" disabled> Stop Clip</button>
+            </div>
+
+            <div class="btn-group-sm p-3">
+                <button type="button" class="btn btn-success" id="play-clip-btn" disabled> Play </button>
+                <button type="button" class="btn btn-success" id="pause-clip-btn" disabled> Pause </button>
+            </div> 
+-->
+
+            <h3 class="form-text">Participants</h3>
+            <ul id="participants-list" class="list-group">
+            </ul>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="client.js"></script>
+
+</body>
+
+</html>
