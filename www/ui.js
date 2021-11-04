@@ -180,10 +180,15 @@ const addVideoNode = (participant, stream) => {
 
   if (!videoNode) {
     videoNode = document.createElement('video');
+
     // add css class to mirror current user's video
     if (participant.id === VoxeetSDK.session.participant.id) {
-      videoNode.setAttribute('class', 'flipped-video');
+      console.log('flip')
+      videoNode.setAttribute('class', 'video-item flipped-video');
+    }else{
+      videoNode.setAttribute('id', 'video-' + participant.id);
     }
+    
     videoNode.setAttribute('class', 'video-item')
     videoNode.setAttribute('id', 'video-' + participant.id);
     videoNode.setAttribute("playsinline", true);
@@ -217,7 +222,7 @@ const createParticpantCard = (participant) => {
 // Add a new participant to the list
 const addParticipantNode = (participant) => {
   // If the participant is the current session user, don't add himself to the list
-  // if (participant.id === VoxeetSDK.session.participant.id) return;
+  if (participant.id === VoxeetSDK.session.participant.id) return;
   let participantNode = document.createElement('p');
   participantNode.setAttribute('id', 'participant-' + participant.id);
   participantNode.innerHTML = createParticpantCard(participant);
