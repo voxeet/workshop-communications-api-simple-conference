@@ -75,6 +75,8 @@ Simple Video Conference App:
 const tokenServerURL = 'Enter the url to your token server here';
 ```
 
+Replace 'Enter the url to your token server here' with your url you've copied from the browser window. 
+
 -  Save and push the change and Netlify will automatically pull and deploy a the new, working versions of our Simple Conference app version. 
 
 
