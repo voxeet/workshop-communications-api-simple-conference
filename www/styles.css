@@ -1,5 +1,4 @@
 /* app  Styles */
- 
 
 .flipped-video {
     transform: rotateY(180deg);
@@ -43,16 +42,6 @@
     background-color: ghostwhite;
 }
 
-  
-.clip-item {
-    max-width: 320px;
-    max-height: 240px;
-    /* width: 320px;
-    height: 240px;  */
-    margin: 40px;
-    border: 5px solid rgb(156, 6, 119);
-    box-shadow: 12px 12px 2px 1px rgba(152, 152, 154, 0.2);
-}
 .video-item {
     max-width: 240px;
     max-height: 240px;

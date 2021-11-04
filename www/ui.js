@@ -13,16 +13,15 @@ const initUI = () => {
   const startRecordingBtn = document.getElementById('start-recording-btn');
   const stopRecordingBtn = document.getElementById('stop-recording-btn');
 
-  //watch party
-  // const clipURLInput = document.getElementById('clip-url-input');
-  // const startClipBtn = document.getElementById('start-clip-btn');
-  // const playClipBtn = document.getElementById('play-clip-btn');
-  // const pauseClipBtn = document.getElementById('pause-clip-btn');
-  // const stopClipBtn = document.getElementById('stop-clip-btn');
+  // Workshop Part three hide html elements / uncomment // showPlayer.style = ""; to show clip video controller
+  const showPlayer =  document.getElementById('clip-player-controls');
+  showPlayer.style = "";
 
-  // Update the login message with the name of the user
-  nameMessage.innerHTML = `You are logged in as ${randomName}`;
-  joinButton.disabled = false;
+ // Update the login message with the name of the user
+ nameMessage.innerHTML = `You are logged in as ${randomName}`;
+ // nameInput.value = randomName;
+ joinButton.disabled = false;
+
 
   joinButton.onclick = () => {
     // Default conference parameters
@@ -57,6 +56,7 @@ const initUI = () => {
         VoxeetSDK.conference.join(conference, joinOptions)
           .then((conf) => {
             lblDolbyVoice.innerHTML = `Dolby Voice is ${conf.params.dolbyVoice ? 'On' : 'Off'}.`;
+
             conferenceAliasInput.disabled = true;
             joinButton.disabled = true;
             leaveButton.disabled = false;
@@ -66,6 +66,10 @@ const initUI = () => {
             stopAudioBtn.disabled = true;
             startScreenShareBtn.disabled = false;
             startRecordingBtn.disabled = false;
+            startClipBtn.disabled = false;
+            playClipBtn.disabled = true;
+            pauseClipBtn.disabled = true;
+            stopClipBtn.disabled = true;
           })
           .catch((e) => console.log(e));
       })
@@ -77,6 +81,7 @@ const initUI = () => {
     VoxeetSDK.conference.leave()
       .then(() => {
         lblDolbyVoice.innerHTML = '';
+
         conferenceAliasInput.disabled = false;
         joinButton.disabled = false;
         leaveButton.disabled = true;
@@ -88,6 +93,10 @@ const initUI = () => {
         stopScreenShareBtn.disabled = true;
         startRecordingBtn.disabled = true;
         stopRecordingBtn.disabled = true;
+        startClipBtn.disabled = true;
+        playClipBtn.disabled = true;
+        pauseClipBtn.disabled = true;
+        stopClipBtn.disabled = true;
       })
       .catch((e) => console.log(e));
   };
@@ -162,6 +171,7 @@ const initUI = () => {
 
   stopRecordingBtn.onclick = () => {
     let recordStatus = document.getElementById('record-status');
+
     // Stop recording the conference
     VoxeetSDK.recording.stop()
       .then(() => {
@@ -171,6 +181,10 @@ const initUI = () => {
       })
       .catch((e) => console.log(e));
   };
+
+   // watch party
+  //  import { initVideoController } from './video-controller.mjs';
+      // initVideoController();  // bring in whole script
 
 }; // init
 
@@ -183,18 +197,16 @@ const addVideoNode = (participant, stream) => {
 
     // add css class to mirror current user's video
     if (participant.id === VoxeetSDK.session.participant.id) {
-      console.log('flip')
       videoNode.setAttribute('class', 'video-item flipped-video');
-    }else{
-      videoNode.setAttribute('id', 'video-' + participant.id);
+    } else {
+      videoNode.setAttribute('class', 'video-item');
     }
-    
-    videoNode.setAttribute('class', 'video-item')
     videoNode.setAttribute('id', 'video-' + participant.id);
     videoNode.setAttribute("playsinline", true);
     videoNode.muted = true;
-    videoNode.setAttribute("autoplay", 'autoplay');
-
+    // videoNode.setAttribute("autoplay", 'autoplay');
+    videoNode.autoplay = true;
+    // videoNode.controls = true;
     const videoContainer = document.getElementById('video-container');
     videoContainer.appendChild(videoNode);
   }
@@ -211,6 +223,7 @@ const removeVideoNode = (participant) => {
 
 
 const createParticpantCard = (participant) => {
+
   let newCard = `<li class="list-group-item-primary d-flex justify-content-between align-items-center my-list">
   ${participant.info.name}
    <img src="${participant.info.avatarUrl}" class="img-fluid rounded-start my-list" alt="${participant.info.name}"> 
@@ -223,6 +236,7 @@ const createParticpantCard = (participant) => {
 const addParticipantNode = (participant) => {
   // If the participant is the current session user, don't add himself to the list
   if (participant.id === VoxeetSDK.session.participant.id) return;
+
   let participantNode = document.createElement('p');
   participantNode.setAttribute('id', 'participant-' + participant.id);
   participantNode.innerHTML = createParticpantCard(participant);
@@ -248,6 +262,7 @@ const addScreenShareNode = (stream) => {
   screenShareNode.setAttribute('class', 'screenshare');
   screenShareNode.setAttribute('id', 'screenshare');
   screenShareNode.autoplay = 'autoplay';
+  screenShareNode.controls = true;  // allows PIP and full screen
   navigator.attachMediaStream(screenShareNode, stream);
   const screenShareContainer = document.getElementById('screenshare-container');
   screenShareContainer.appendChild(screenShareNode);
@@ -264,5 +279,3 @@ const removeScreenShareNode = () => {
   const stopScreenShareBtn = document.getElementById('stop-screenshare-btn');
   stopScreenShareBtn.disabled = true;
 }
-
-
