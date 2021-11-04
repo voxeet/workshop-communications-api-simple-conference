@@ -2,11 +2,13 @@
 
 This is a **TWO PART** workshop. in **PART ONE** one we will build a token service, and in **Part TWO** we will build and deploy a simple video conference app that demonstrates a simple video conference, participants list with avatars, mic and video controls, screensharing and recording with Dolby.io Communications APIs. Avatars in this demo are hosted and transformed with Cloudinary, and the GitHub auto-deployment workflow is managed on Netlify.  
 
+### Part 1 -  Simple Token Service
+#### Set up a token service to quickly authenticate the we'll build in part TWO.
 > **Note**: 
 > To run this example; You will be required to setup a token
-> server.
+> service.
 
-We've created a serverless function to satisfy that requirement. This token server example is targeted for deployment with Netlify Functions. The primary function may adapted for other function as a service on other platforms.  Using a token for [initialization](https://docs.dolby.io/communications-apis/docs/initializing-javascript) of our SDK follows our best practice for securing your application.
+We're going to create a serverless function to satisfy that token service requirement. This token server example is targeted for deployment with Netlify Functions. The primary function may adapted for other function as a service on other platforms.  Using a token for [initialization](https://docs.dolby.io/communications-apis/docs/initializing-javascript) of our SDK follows our best practice for securing your application.
 
 Follow the instructions at this [repo](https://github.com/dolbyio-samples/communications-api-token-server-netlify) .
 
