@@ -1,6 +1,6 @@
 ### Build a simple conference application with Dolby.io, Cloudinary and Netlify.
 
-This app demonstrates a simple video conference, participants list with avatars, mic and video controls, screensharing and recording with Dolby.io Communications APIs. Avatars in this demo are hosted and transformed with Cloudinary, and the GitHub auto-deployment workflow is managed on Netlify.  
+This is a TWO PART workshop. in part one we will build a token service, and in Part TWO we will build and deploy a simple video conference app that demonstrates a simple video conference, participants list with avatars, mic and video controls, screensharing and recording with Dolby.io Communications APIs. Avatars in this demo are hosted and transformed with Cloudinary, and the GitHub auto-deployment workflow is managed on Netlify.  
 
 > **Note**: 
 > To run this example; You will be required to setup a token
