@@ -22,7 +22,6 @@ const initUI = () => {
 
   // Update the login message with the name of the user
   nameMessage.innerHTML = `You are logged in as ${randomName}`;
-  // nameInput.value = randomName;
   joinButton.disabled = false;
 
   joinButton.onclick = () => {
@@ -58,7 +57,6 @@ const initUI = () => {
         VoxeetSDK.conference.join(conference, joinOptions)
           .then((conf) => {
             lblDolbyVoice.innerHTML = `Dolby Voice is ${conf.params.dolbyVoice ? 'On' : 'Off'}.`;
-
             conferenceAliasInput.disabled = true;
             joinButton.disabled = true;
             leaveButton.disabled = false;
@@ -79,7 +77,6 @@ const initUI = () => {
     VoxeetSDK.conference.leave()
       .then(() => {
         lblDolbyVoice.innerHTML = '';
-
         conferenceAliasInput.disabled = false;
         joinButton.disabled = false;
         leaveButton.disabled = true;
@@ -165,7 +162,6 @@ const initUI = () => {
 
   stopRecordingBtn.onclick = () => {
     let recordStatus = document.getElementById('record-status');
-
     // Stop recording the conference
     VoxeetSDK.recording.stop()
       .then(() => {
@@ -188,15 +184,11 @@ const addVideoNode = (participant, stream) => {
     if (participant.id === VoxeetSDK.session.participant.id) {
       videoNode.setAttribute('class', 'flipped-video');
     }
-    
     videoNode.setAttribute('class', 'video-item')
     videoNode.setAttribute('id', 'video-' + participant.id);
-    // videoNode.setAttribute('height', 120);
-    // videoNode.setAttribute('width', 160);
     videoNode.setAttribute("playsinline", true);
     videoNode.muted = true;
     videoNode.setAttribute("autoplay", 'autoplay');
-    // videoNode.style = 'background: gray;';
 
     const videoContainer = document.getElementById('video-container');
     videoContainer.appendChild(videoNode);
@@ -214,16 +206,10 @@ const removeVideoNode = (participant) => {
 
 
 const createParticpantCard = (participant) => {
-
   let newCard = `<li class="list-group-item-primary d-flex justify-content-between align-items-center my-list">
   ${participant.info.name}
    <img src="${participant.info.avatarUrl}" class="img-fluid rounded-start my-list" alt="${participant.info.name}"> 
 </li>`
-
-  // let newCard = ` <li class="list-group-item">  
-  // <img src="${participant.info.avatarUrl}" class="img-fluid rounded-start" alt="${participant.info.name}"> 
-  // ${participant.info.name} 
-  // </li>`
   return newCard;
 }
 

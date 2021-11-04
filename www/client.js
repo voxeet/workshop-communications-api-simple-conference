@@ -1,9 +1,9 @@
-
 /**  Create a list of Cities for our Money Heist Characters */
 const cities = ['Seattle', 'Vancouver', 'Portland', 'Tokyo', 'Berlin', 'Palermo', 'Nairobi', 'Denver', 'Helsinki', 'Rio', 'Moscow', 'Oslo'];
 let randomName = cities[Math.floor(Math.random() * cities.length)];
 
 // Replace our city name in URL and add some cloudinary transformaitons.
+// You can upload an use your own images at cloudinary.com
 let imagePlaceholder = `https://res.cloudinary.com/dolby-io/image/upload/e_art:red_rock/ar_1:1,c_fill,g_auto,r_max,w_50/v1634690310/dolby-hackathon/cities/${randomName}.png`
 
 /**  Update varibles when form input changes */
