@@ -14,7 +14,7 @@ Follow the instructions at this [repo](https://github.com/dolbyio-samples/commun
 #### How to Install and deploy this project on Netlify:
 - First you'll need an API key and API secret to comunicate with the Dobly APIs. To create those:
 
-- Select the **SIGN IN** link located in the upper right corner of the [Dolby.io](https://dolbly.io) page.
+- Select the **SIGN IN** link located in the upper right corner of the [Dolby.io](https://dolby.io) page.
 
 - Log in using your email and password. Click the **DASHBOARD** link visible in the upper right corner of the website.
 
