@@ -182,10 +182,6 @@ const initUI = () => {
       .catch((e) => console.log(e));
   };
 
-   // watch party
-  //  import { initVideoController } from './video-controller.mjs';
-      // initVideoController();  // bring in whole script
-
 }; // init
 
 // Add a video stream to the web page
