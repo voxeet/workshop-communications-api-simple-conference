@@ -11,7 +11,8 @@ function updateNameValue(e) {
   randomName = e.target.value;
 }
 
-// URL to our Token Server
+// URL to the Token Server
+// See example token server:   https://github.com/dolbyio-samples/communications-api-token-server-netlify 
 const tokenServerURL = 'Enter the url to your token server here';
 
 
